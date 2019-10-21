@@ -3,7 +3,7 @@ import Header from "./Header";
 import { withFormik, Field, Form } from "formik";
 import * as Yup from "yup";
 
-const Login = ({ values, status, errors, touched }) => {
+const Login = ({ errors, touched }) => {
   return (
     <div className="container">
       <div className="headerlogincontainer">
@@ -48,6 +48,6 @@ const FormikLogin = withFormik({
   validationSchema: Yup.object().shape({
     name: Yup.string().required("Please enter your username"),
     password: Yup.string().required("Please enter your password")
-  })
+  }),
 })(Login);
 export default FormikLogin;
