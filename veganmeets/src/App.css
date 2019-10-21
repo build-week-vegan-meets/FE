@@ -20,43 +20,64 @@
 .App-link {
   color: #09d3ac;
 }
-.headerContainer{
-  display:flex;
+.headerContainer {
+  display: flex;
   padding-left: 2%;
 }
-.veganheader{
-  color:#52BA5D;
+.veganheader {
+  color: #52ba5d;
 }
-.headerlogincontainer{
-  display:flex;
-  flex-direction:column;
+.headerlogincontainer {
+  display: flex;
+  flex-direction: column;
 }
-.container{
-  display:flex;
+.container {
+  display: flex;
 }
-.greyspace{
-  background-color:#B2B2B2;
-  width:50vw;
-}
-.login-container{
+.greyspace {
+  background-color: #b2b2b2;
   width: 50vw;
-  display:flex;
+}
+.login-container {
+  width: 50vw;
+  display: flex;
   flex-direction: column;
   align-items: center;
-  height:100vh;
-  margin-top:15%;
+  height: 100vh;
+  margin-top: 15%;
 }
-.login-input{
-  width:35vw;
+.login-input {
+  width: 35vw;
   border-radius: 5px;
-  height:5vh;
-  margin:0 0 5% 0;
+  height: 5vh;
+  margin: 0 0 5% 0;
 }
 
-.loginbtn{
+.loginbtn {
   width: 45%;
   height: 5%;
-  background-color:#52BA5D;
-  color:white;
-  border-radius:5px;
+  background-color: #52ba5d;
+  color: white;
+  border-radius: 5px;
+}
+
+@media only screen and (max-width: 500px) {
+  .headerlogincontainer {
+    width: 100%;
+    align-items: center;
+  }
+  .greyspace {
+    display: none;
+  }
+  .logincontainer {
+    width: 100vw;
+  }
+  .login-input {
+    width: 90vw;
+  }
+  .loginbtn {
+    width: 60vw;
+    height: 6%;
+    margin-top: 5%;
+  }
 }
