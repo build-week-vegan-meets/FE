@@ -1,31 +1,33 @@
 import React from "react";
 import Header from "./Header";
+import { withFormik, Field, Form } from "formik";
+import * as Yup from "yup";
 
-const Login = () => {
+const Login = ({ values, status, errors, touched }) => {
   return (
     <div className="container">
       <div className="headerlogincontainer">
         <Header />
         <div className="login-container">
-          <form>
+          <Form>
             <h3>Login</h3>
-            <input
+            <Field
               className="login-input"
               name="username"
-              id="username"
               type="text"
               placeholder="Username"
             />
+            {touched.username && errors.username && (<p className="errors">{errors.username}</p>)}
             <br />
-            <input
+            <Field
               className="login-input"
               name="password"
-              id="password"
               type="password"
-              placeholder="password"
+              placeholder="Password"
             />
-          </form>
-          <button className="loginbtn">Log In</button>
+            {touched.password && errors.passowrd && (<p className="errors">{errors.password}</p>)}
+          </Form>
+          <button type="submit" className="loginbtn">Log In</button>
           <p>
             Don't have an account? <span>Create one.</span>
           </p>
@@ -35,4 +37,17 @@ const Login = () => {
     </div>
   );
 };
-export default Login;
+
+const FormikLogin = withFormik({
+  mapPropsToValues({ username, password }) {
+    return {
+      username: username || "",
+      password: password || ""
+    };
+  },
+  validationSchema: Yup.object().shape({
+    name: Yup.string().required("Please enter your username"),
+    password: Yup.string().required("Please enter your password")
+  })
+})(Login);
+export default FormikLogin;
