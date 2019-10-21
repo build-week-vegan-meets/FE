@@ -2,16 +2,53 @@ import React from "react";
 import Header from "./Header";
 import { withFormik, Field, Form } from "formik";
 import * as Yup from "yup";
+import styled from "styled-components"
+import Sideimg from "../assets/Vegfruit.png"
+
+
+const Container = styled.div`
+display: flex;
+  height: 100vh;
+`;
+
+const HeaderLoginContainer = styled.div`
+display:flex;
+flex-direction: column
+`;
+
+const LoginContainer = styled.div`
+width: 50vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  margin-top: 15%;
+`;
+
+const LoginInput = styled(Field)`
+width: 35vw;
+  border-radius: 5px;
+  height: 5vh;
+  margin: 0 0 5% 0;
+`;
+
+const SideDiv =styled.div`
+background-color: #b2b2b2;
+  width: 50vw;
+  background-image: url(${Sideimg});
+  background-size:cover;
+  height:auto;
+`;
 
 const Login = ({ errors, touched }) => {
   return (
-    <div className="container">
-      <div className="headerlogincontainer">
+    <Container>
+      <HeaderLoginContainer>
         <Header />
-        <div className="login-container">
+        <LoginContainer>
           <Form>
             <h3>Login</h3>
-            <Field
+            <LoginInput
               className="login-input"
               name="username"
               type="text"
@@ -19,7 +56,7 @@ const Login = ({ errors, touched }) => {
             />
             {touched.username && errors.username && (<p className="errors">{errors.username}</p>)}
             <br />
-            <Field
+            <LoginInput
               className="login-input"
               name="password"
               type="password"
@@ -31,10 +68,10 @@ const Login = ({ errors, touched }) => {
           <p>
             Don't have an account? <span>Create one.</span>
           </p>
-        </div>
-      </div>
-      <div className="greyspace"></div>
-    </div>
+        </LoginContainer>
+      </HeaderLoginContainer>
+      <SideDiv></SideDiv>
+    </Container>
   );
 };
 

@@ -36,10 +36,15 @@ body{
 }
 .container {
   display: flex;
+  height: 100vh;
 }
 .greyspace {
   background-color: #b2b2b2;
   width: 50vw;
+  background-image: url('./assets/Vegfruit.png');
+  background-size:cover;
+  height:auto;
+
 }
 .login-container {
   width: 50vw;
