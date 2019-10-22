@@ -1,13 +1,13 @@
 import React from "react";
 import "./App.css";
-import Login from "./components/Login";
-import AddRestaraunt from "./components/restaurants/AddRestarauntForm"
+import HomePage from "./components/restaurants/HomePage"
+import RestaurantCard from "./components/restaurants/RestaurantCard"
+
 
 function App() {
   return (
     <div className="App">
-      <AddRestaraunt />
-      <Login />
+      <HomePage />
     </div>
   );
 }

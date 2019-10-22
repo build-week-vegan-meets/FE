@@ -1,9 +1,9 @@
 import React from "react";
-import Header from "./Header";
+import Header from "../restaurants/Header";
 import { withFormik, Field, Form } from "formik";
 import * as Yup from "yup";
 import styled from "styled-components";
-import Sideimg from "../assets/Vegfruit.png";
+import Sideimg from "../../assets/Vegfruit.png";
 
 const Container = styled.div`
   display: flex;
