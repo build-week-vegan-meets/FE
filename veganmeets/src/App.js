@@ -1,13 +1,18 @@
 import React from "react";
 import "./App.css";
-import HomePage from "./components/restaurants/HomePage"
-import RestaurantCard from "./components/restaurants/RestaurantCard"
+
+import Login from './Components/signup/Login';
+import {SignupFormik} from './Components/signup/SignupForm';
+import Search from './Components/restaurants/Search';
+import {RestaurantFormik} from './Components/restaurants/AddRestarauntForm';
+import StarRating from './Components/restaurants/StarRating';
 
 
 function App() {
   return (
     <div className="App">
-      <HomePage />
+      <StarRating />
+
     </div>
   );
 }
