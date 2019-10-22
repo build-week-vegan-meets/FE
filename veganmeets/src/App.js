@@ -4,12 +4,12 @@ import Login from './Components/signup/Login';
 import {SignupFormik} from './Components/signup/SignupForm';
 import Search from './Components/restaurants/Search';
 import {RestaurantFormik} from './Components/restaurants/AddRestarauntForm';
+import StarRating from './Components/restaurants/StarRating';
 
 function App() {
   return (
     <div className="App">
-      <Search />
-      <RestaurantFormik />
+      <StarRating />
     </div>
   );
 }
