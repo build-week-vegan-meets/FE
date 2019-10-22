@@ -1,8 +1,8 @@
-import React, {useState} from "react";
-import styled from "styled-components";
+import React, {useState} from "./node_modules/react";
+import styled from "./node_modules/styled-components";
 import Nav from "./Nav";
 import Search from "./Search";
-import axios from "axios"
+import axios from "./node_modules/axios"
 
 const Page = styled.div`
   display: flex;

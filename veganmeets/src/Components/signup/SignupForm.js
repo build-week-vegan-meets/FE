@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import { NavLink } from "react-router-dom"
 import {withFormik, Form, Field} from 'formik';
 import * as Yup from 'yup';
 import {colors} from '../../colors';
@@ -114,9 +115,9 @@ const SignupForm = ({errors, touched, status}) => {
        placeholder="Confirm Password"
        />
       {touched.confirm && errors.confirm && (<p className="error">{errors.confirm}</p>)} */}
-  
+      <NavLink to={`/login`}>
       <button type="submit">Sign Up</button>
-  
+      </NavLink>
       <h4>Already have an account? Log in.</h4>
   
         </Form>

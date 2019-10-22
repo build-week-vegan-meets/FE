@@ -61,13 +61,7 @@ body{
   margin: 0 0 5% 0;
 }
 
-.loginbtn {
-  width: 45%;
-  height: 5%;
-  background-color: #52ba5d;
-  color: white;
-  border-radius: 5px;
-}
+
 
 @media only screen and (max-width: 500px) {
   .headerlogincontainer {

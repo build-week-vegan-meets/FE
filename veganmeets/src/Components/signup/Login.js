@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import Header from "../restaurants/Header";
 import { withFormik, Field, Form } from "formik";
 import * as Yup from "yup";
@@ -13,7 +14,7 @@ const Container = styled.div`
 const HeaderLoginContainer = styled.div`
   display: flex;
   flex-direction: column;
-   @media (max-width: 500px) {
+  @media (max-width: 500px) {
     width: 100%;
     align-items: center;
   }
@@ -27,8 +28,8 @@ const LoginContainer = styled.div`
   height: 100vh;
   margin-top: 15%;
 
-  @media (max-width: 500px){
-      width:100%;
+  @media (max-width: 500px) {
+    width: 100%;
   }
 `;
 
@@ -38,8 +39,8 @@ const LoginInput = styled(Field)`
   height: 5vh;
   margin: 0 0 5% 0;
 
-  @media (max-width: 500px){
-      width:90vw;
+  @media (max-width: 500px) {
+    width: 90vw;
   }
 `;
 
@@ -55,17 +56,17 @@ const SideDiv = styled.div`
 `;
 
 const LoginBtn = styled.button`
-width:45%;
-height:5%;
-background-color:#52ba5d;
-color:white;
-border-radius:5px;
+  width: 45%;
+  height: 5%;
+  background-color: #52ba5d;
+  color: white;
+  border-radius: 5px;
 
-@media (max-width: 500px){
-width:60vw;
-height: 6%;
-margin-top:5%;
-}
+  @media (max-width: 500px) {
+    width: 60vw;
+    height: 6%;
+    margin-top: 5%;
+  }
 `;
 
 const Login = ({ errors, touched }) => {
@@ -96,9 +97,11 @@ const Login = ({ errors, touched }) => {
               <p className="errors">{errors.password}</p>
             )}
           </Form>
+
           <LoginBtn type="submit" className="loginbtn">
-            Log In
+            <NavLink to={`/`}>Log In</NavLink>
           </LoginBtn>
+
           <p>
             Don't have an account? <span>Create one.</span>
           </p>
