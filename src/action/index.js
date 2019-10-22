@@ -4,12 +4,13 @@ export const SIGNUP = 'SIGNUP';
 export const SIGNUP_RESULT = 'SIGNUP_RESULT';
 export const LOGIN = 'LOGIN';
 export const LOGIN_RESULT = 'LOGIN_RESULT';
-export const USER_INFO_FETCH_SUCCESS = 'USER_INFO_FETCH_SUCCESS';
+export const ADD_RESTAURANT = 'ADD_RESTAURANT';
+export const ADD_RESTAURANT_SUCCESS = 'ADD_RESTAURANT_SUCCESS';
 
 export const doSignup = data => dispatch => {
     dispatch({ type: SIGNUP, payload: data });
   
-    axiosWithAuth().post('/register', ({ ...data, grant_type: 'password' }))
+    axiosWithAuth().post('/login', ({ ...data, grant_type: 'password' }))
       .then(response => {
         localStorage.setItem("token", response.data.access_token);
         localStorage.setItem("tokenType", response.data.token_type);
@@ -58,16 +59,11 @@ export const doLogin = data => dispatch => {
       });
   };
 
-  // export const getUserInfo = () => dispatch => {
-  //   return new Promise((resolve, reject) => {
-  //     axiosWithAuth().get('/users/getusername')
-  //       .then(response => {
-  //         dispatch({ type: USER_INFO_FETCH_SUCCESS, payload: response.data });
-  //         resolve(response.data);
-  //       })
-  //       .catch(error => {
-  //         console.log('Could not get user info', error);
-  //         reject(error);
-  //       });
-  //   });
-  // };
+  export const addRestaurant = restaurant => dispatch => {
+    dispatch({ type: ADD_RESTAURANT, payload: restaurant });
+  
+    axiosWithAuth().post('/', {...restaurant }) //is there a userid and what is the endpoint
+      .then(response => dispatch({ type: ADD_RESTAURANT_SUCCESS, payload: response.data }))
+      .catch(error => console.log('Add restaurant error', error));
+  };
+

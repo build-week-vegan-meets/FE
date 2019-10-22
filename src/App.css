@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
 #root,
 html,
 body {
@@ -14,61 +15,9 @@ body {
   background-repeat: no-repeat;
   background-size: 50% 100%;
   background-position: right;
+  position:fixed;
 }
 .App {
   font-family: 'Poppins', sans-serif;
-  height: 100%;
 }
-.signup-form {
-  width: 460px;
-  margin: auto 100px;
-  padding: 32px;
-  text-align: center;
-  font-weight: bold;
-}
-h1:before {
-  content: "Vegan";
-  font-style: normal;
-  color: #52BA5D;
-  padding-left: 20px;
-}
-h1:after {
-  content: "Meets";
-  font-style: normal;
-  color: #343434;
-}
-h3 {
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 27px;
-  color: #343434;
-}
-h4 {
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 24px;
-  color: #343434; 
-}
-input {
-  margin-top: 32px;
-  padding: 0.5rem;
-  font-size: 16px;
-  width: 100%;
-  display: block;
-  background: #FFFFFF;
-  border: 1px solid #CCCCCC;
-  box-sizing: border-box;
-  border-radius: 10px;
-}
-button {
-  width: 250px;
-  margin: 32px 0;
-  padding: 12px 20px;
-  background: #52BA5D;
-  border-radius: 10px;
-  color: #FFFFFF;
-}
+

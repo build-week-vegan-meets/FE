@@ -6,9 +6,7 @@ export const signup = (state = {}, action) => {
       case actions.SIGNUP:
         return { ...state, processing: true };
       case actions.SIGNUP_RESULT:
-        return { ...state, ...action.payload, processing: false };
-      case actions.USER_INFO_FETCH_SUCCESS:
-        return { ...state, user: action.payload };
+         return { ...state, user: action.payload };
       default:
         return state;
     };
@@ -20,8 +18,6 @@ export const login = (state = {}, action) => {
         return { ...state, processing: true };
       case actions.LOGIN_RESULT:
         return { ...state, ...action.payload, processing: false };
-      case actions.USER_INFO_FETCH_SUCCESS:
-        return { ...state, user: action.payload };
       default:
         return state;
     };
