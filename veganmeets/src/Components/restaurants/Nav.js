@@ -17,12 +17,15 @@ background-color: #52BA5D;
 padding-right: 2%;
 `;
 
-const Button = styled.button`
+const Button = styled(NavLink)`
 width: 100px;
 height: 30px;
 margin: 2% 2% 0 2%;
 border: 1px solid black
 border-radius: 5px;
+text-decoration: none;
+color:white;
+padding-left: 3%;
 `;
 
 
@@ -36,9 +39,9 @@ const Nav = () => {
         </h1>
       </div>
       <ButtonContainer>
-          <Button>Account</Button>
-          <Button>Log in</Button>
-          <Button>Sign up</Button>
+          <Button to={`/`}>Account</Button>
+          <Button to={`/login`}>Log in</Button>
+          <Button to={`/signup`}>Sign up</Button>
       </ButtonContainer>
     </NavContainer>
   );
