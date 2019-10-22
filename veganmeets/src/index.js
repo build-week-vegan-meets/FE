@@ -16,9 +16,9 @@ const store = createStore(combineReducers({
 }), composeEnhancers(applyMiddleware(thunk)));
 
 ReactDOM.render(
-<Provider store={store}>
+ <Provider store={store}> 
 <Router>
-<App store={store} />
+ <App store={store} />
 </Router>
 </Provider>
 , document.getElementById('root'));
