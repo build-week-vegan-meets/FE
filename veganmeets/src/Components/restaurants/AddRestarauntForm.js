@@ -12,7 +12,7 @@ form {
     padding: 32px;
     text-align: center;
     font-weight: bold;
-  }
+   }
   h1:before {
     content: "Vegan";
     font-style: normal;
@@ -43,8 +43,8 @@ form {
     border-radius: 10px;
     color: ${colors.white};
   }
-
 `
+
 
 function AddRestaurantForm(props){
     return(
@@ -68,7 +68,7 @@ function AddRestaurantForm(props){
                 <button type="submit">Submit</button>
 
             </Form>
-        </AddRestaurantFormStyle>
+          </AddRestaurantFormStyle>
     )
 }
 

@@ -5,6 +5,22 @@ import {colors} from '../../colors';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { doSignup } from '../../action/index';
+import Sideimg from '../../assets/Vegfruit.png';
+
+const Container = styled.div`
+  display: flex;
+  height: 100vh;
+`;
+
+const SideDiv = styled.div`
+  width: 55vw;
+  background-image: url(${Sideimg});
+  background-size: cover;
+  height: auto;
+  @media (max-width: 500px) {
+  display: none;
+}
+`;
 
 const SignupFormStyle = styled.div`
   form {
@@ -71,6 +87,7 @@ const SignupForm = ({errors, touched, status}) => {
     }, [status]);
   
     return(
+      <Container>
       <SignupFormStyle>
         <h1></h1>
         <div className="signup-form">
@@ -105,6 +122,8 @@ const SignupForm = ({errors, touched, status}) => {
         </Form>
       </div>
       </SignupFormStyle>
+      <SideDiv></SideDiv>
+      </Container>
     )
   };
   
