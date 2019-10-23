@@ -1,23 +1,18 @@
-import React, {useState} from "react";
-<<<<<<< HEAD
+
+import React, {useState, useEffect} from "react";
 import {connect} from 'react-redux';
 import {getAllRestaurants} from '../../action/index';
 import styled from "styled-components";
-import Nav from "./Nav";
 import Search from "./Search";
 import RestaurantCard from './RestaurantCard';
-
-=======
-import styled from "styled-components";
 import Nav from "./Nav";
-import Search from "./Search";
-import axios from "axios";
 import FrenchToast from "../../assets/frenchtoast1.png";
 import FrenchCasserole from "../../assets/frenchtoast.png";
 import Mushroom from "../../assets/mushroom.png"
 import Burger from "../../assets/burger.png"
 import Rest from "../../assets/restaurant.png"
->>>>>>> 6a86e8f4150a6a212e93879cf0cdf452b1621d2a
+import axios from "axios";
+
 
 const Page = styled.div`
   display: flex;
@@ -43,6 +38,10 @@ const RestInfoContainer = styled.div`
   width: 60%;
   
 `;
+
+
+const ResraurantPage = props => {
+  const [ rest, setRest ] = useState();
 
 const LocalRestaurantPage = ({restaurants, getAllRestaurants}) => {
     const [rests, setRests] = useState();
@@ -70,6 +69,12 @@ const LocalRestaurantPage = ({restaurants, getAllRestaurants}) => {
     return <RestaurantCard key={i} {...e}></RestaurantCard>
 })
 
+
+  useEffect(()=>{
+    // const id= 
+    axios
+    .get(`vegan-meets.herokuapp.com/resturants/`)
+  })
   return (
     <>
       <Nav />
