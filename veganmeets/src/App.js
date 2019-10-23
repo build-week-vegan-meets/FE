@@ -7,11 +7,13 @@ import Search from "./Components/restaurants/Search";
 import { RestaurantFormik } from "./Components/restaurants/AddRestarauntForm";
 import StarRating from "./Components/restaurants/StarRating";
 import HomePage from "./Components/restaurants/HomePage";
+import RestaurantPage from "./Components/restaurants/RestaurantPage"
 
 function App() {
   return (
     <div className="App">
       <Route exact path="/" component={HomePage} />
+      <Route path ="/restaurant/:id" component={RestaurantPage} />
       <Route path="/signup" component={SignupFormik}/>
       <Route path="/login" component={LoginFormik} />
     </div>

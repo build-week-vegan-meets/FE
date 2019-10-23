@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+<<<<<<< HEAD
 import {connect} from 'react-redux';
 import {getAllRestaurants} from '../../action/index';
 import styled from "styled-components";
@@ -6,6 +7,17 @@ import Nav from "./Nav";
 import Search from "./Search";
 import RestaurantCard from './RestaurantCard';
 
+=======
+import styled from "styled-components";
+import Nav from "./Nav";
+import Search from "./Search";
+import axios from "axios";
+import FrenchToast from "../../assets/frenchtoast1.png";
+import FrenchCasserole from "../../assets/frenchtoast.png";
+import Mushroom from "../../assets/mushroom.png"
+import Burger from "../../assets/burger.png"
+import Rest from "../../assets/restaurant.png"
+>>>>>>> 6a86e8f4150a6a212e93879cf0cdf452b1621d2a
 
 const Page = styled.div`
   display: flex;
@@ -64,9 +76,9 @@ const LocalRestaurantPage = ({restaurants, getAllRestaurants}) => {
       <Search handleChange={handleChange}/>
       <Page>
         <ImageContainer>
-          <Img src="veganmeets/src/assets/restaurant.png" />
-          <Img src="veganmeets/src/assets/frenchtoast1.png" />
-          <Img src="veganmeets/src/assets/frenchtoast.png" />
+          <Img src={`${Rest}`} />
+          <Img src={`${FrenchToast}`}/>
+          <Img src={`${FrenchCasserole}`} />
         </ImageContainer>
         <RestInfoContainer>
           <div>
@@ -89,9 +101,9 @@ const LocalRestaurantPage = ({restaurants, getAllRestaurants}) => {
         </RestInfoContainer>
         <p>Vegan Dishes </p>
         <ImageContainer>
-          <Img src="veganmeets/src/assets/restaurant.png" />
-          <Img src="veganmeets/src/assets/frenchtoast1.png" />
-          <Img src="veganmeets/src/assets/frenchtoast.png" />
+          <Img src={`${Burger}`} />
+          <Img src={`${FrenchToast}`} />
+          <Img src={`${Mushroom}`}/>
           </ImageContainer>
       </Page>
     </>
