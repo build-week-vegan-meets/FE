@@ -52,7 +52,7 @@ const RestaurantCard = (props) => {
       {/* <h1>{props.restaurantName}</h1>
       <p>{props.phoneNumber}</p>
       <p>{props.hoursOfOperation}</p>
-
+      
       <button onClick={()=>handleEdit()}>Edit</button>
       <button onClick={()=>handleDelete()}>Delete</button> */}
 
