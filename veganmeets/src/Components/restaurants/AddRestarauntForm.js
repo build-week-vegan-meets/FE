@@ -53,17 +53,11 @@ function AddRestaurantForm(props){
             <Form>
                 <Field type="text" name="address" placeholder="Address" value={props.address} />
 
-                <Field type="text" name="city" placeholder="City" value={props.city} />
+                 <Field type="text" name="restaurantname" placeholder="Restaurant Name" value={props.restaurantname} />
 
-                <Field type="text" name="state" placeholder="State" value={props.state} />
+                <Field type="text" name="phonenumber" placeholder="Phone number" value={props.phonenumber} />
 
-                <Field type="text" name="zipcode" placeholder="Zip Code" value={props.zipcode} />
-
-                <Field type="text" name="restaurantName" placeholder="Restaurant Name" value={props.name} />
-
-                <Field type="text" name="phoneNumber" placeholder="Phone number" value={props.phone} />
-
-                <Field type="text" name="hoursOfOperation" placeholder="Hours of operation" value={props.hours} />
+                <Field type="text" name="hoursofoperation" placeholder="Hours of operation" value={props.hoursofoperation} />
 
                 <button type="submit">Submit</button>
 
@@ -76,23 +70,17 @@ const AddRestaurantFormik = withFormik({
     mapPropsToValues(val){
         return{
             address: val.address || "",
-            city: val.city || "",
-            state: val.state || "",
-            zipcode: val.zipcode || "",
-            restaurantName: val.restaurantName || "",
-            phoneNumber: val.phoneNumber || "",
-            hoursOfOperation: val.hoursOfOperation || ""
+            restaurantName: val.restaurantname || "",
+            phoneNumber: val.phonenumber || "",
+            hoursOfOperation: val.hoursofoperation || ""
         }
     },
     handleSubmit(values, {props}) {
         let formattedValues = {
             "address": values.address,
-            "city": values.city,
-            "state": values.state,
-            "zipcode": values.zipcode,
-            "name": values.restaurantName,
-            "phone": values.phoneNumber,
-            "hours": values.hoursOfOperation
+            "name": values.restaurantname,
+            "phone": values.phonenumber,
+            "hours": values.hoursofoperation
         }
         props.addRestaurant(formattedValues);
     }
