@@ -1,12 +1,10 @@
 import React from "react";
 import Nav from "./Nav";
 import Search from "./Search"
-import styled from "styled-components"
 import RestaurantCard from "./RestaurantCard"
+import { Route, NavLink } from "react-router-dom"
 
-const CardContainer = styled.div`
 
-`;
 
 
 const HomePage = () => {

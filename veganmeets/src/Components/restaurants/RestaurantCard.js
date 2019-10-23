@@ -30,12 +30,25 @@ padding-top: 3%;
 `;
 
 const RestaurantCard = (props) => {
+
+  const handleEdit= () => {
+    props.setForm(props)
+  }
+
+  const handleDelete = () => {
+
+  }
+
   return (
     <RestCard>
       <h1>{props.restaurantName}</h1>
       <p>{props.phoneNumber}</p>
       <p>{props.hoursOfOperation}</p>
-      <button type="submit"></button>
+
+      <button onClick={()=>handleEdit()}>Edit</button>
+      <button onClick={()=>handleDelete()}>Delete</button>
+
+
       {/* <MainInfo>
         <div>
           <Img src="veganmeets/src/assets/restaurant.png" />
