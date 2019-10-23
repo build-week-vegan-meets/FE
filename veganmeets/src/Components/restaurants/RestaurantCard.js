@@ -29,10 +29,14 @@ width: 30%;
 padding-top: 3%;
 `;
 
-const RestaurantCard = () => {
+const RestaurantCard = (props) => {
   return (
     <RestCard>
-      <MainInfo>
+      <h1>{props.restaurantName}</h1>
+      <p>{props.phoneNumber}</p>
+      <p>{props.hoursOfOperation}</p>
+      <button type="submit"></button>
+      {/* <MainInfo>
         <div>
           <Img src="veganmeets/src/assets/restaurant.png" />
         </div>
@@ -49,7 +53,7 @@ const RestaurantCard = () => {
       <TimeLoc>
         <p>11:30 pm to 9 pm</p>
         <p>23 liberty street<br /> Chinatown, CA, 91416</p>
-      </TimeLoc>
+      </TimeLoc> */}
     </RestCard>
   );
 };

@@ -1,8 +1,11 @@
 import React, {useState} from "react";
+import {connect} from 'react-redux';
+import {getAllRestaurants} from '../../action/index';
 import styled from "styled-components";
 import Nav from "./Nav";
 import Search from "./Search";
-import axios from "axios"
+import RestaurantCard from './RestaurantCard';
+
 
 const Page = styled.div`
   display: flex;
@@ -29,20 +32,44 @@ const RestInfoContainer = styled.div`
   
 `;
 
-const ResraurantPage = props => {
+const LocalRestaurantPage = ({restaurants, getAllRestaurants}) => {
+    const [rests, setRests] = useState();
+
+    useEffect(() => {
+      getAllRestaurants();
+  }, []);
+
+  if(!restaurants){
+      return <p>No restaurants to show</p>
+  }
+
+  handleChange= e => {
+      let value = e.target.value;
+      let filtered = restaurants.filter((restaurant,i)=>{
+          let data = `${restaurant.name} ${restaurant.city} ${restaurant.food}`.toLowerCase();
+          return data.includes(value);
+      })
+      setRests(filtered);
+  }
+
+  const cards = (rests) ? rests.map((e,i)=>{
+    return <RestaurantCard key={i} {...e}></RestaurantCard>
+}) : restaurants.map((e,i)=>{
+    return <RestaurantCard key={i} {...e}></RestaurantCard>
+})
 
   return (
     <>
       <Nav />
-      <Search />
-      <Page>
+      <Search handleChange={handleChange}/>
+      {/* <Page>
         <ImageContainer>
           <Img src="veganmeets/src/assets/restaurant.png" />
           <Img src="veganmeets/src/assets/frenchtoast1.png" />
           <Img src="veganmeets/src/assets/frenchtoast.png" />
-        </ImageContainer>
+        </ImageContainer> */}
         <RestInfoContainer>
-          <div>
+          {/* <div>
             <h1>Oui French</h1>
             <p>
               * * * * * <span> 129 reviews</span>
@@ -56,17 +83,21 @@ const ResraurantPage = props => {
           <div>
             <p>11:30 pm to 9 pm</p>
             <p>23 liberty street Chinatown, CA, 91416</p>
-          </div>
+          </div> */}
+          {cards}
+         
         </RestInfoContainer>
-        <p>Vegan Dishes </p>
+        {/* <p>Vegan Dishes </p>
         <ImageContainer>
           <Img src="veganmeets/src/assets/restaurant.png" />
           <Img src="veganmeets/src/assets/frenchtoast1.png" />
           <Img src="veganmeets/src/assets/frenchtoast.png" />
           </ImageContainer>
-      </Page>
+      </Page> */}
     </>
   );
 };
 
-export default ResraurantPage;
+export const RestaurantPage = connect((state) => {
+  return {...state.restaurants}
+}, {getAllRestaurants})(LocalRestaurantPage);
