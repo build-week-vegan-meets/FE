@@ -28,6 +28,10 @@ color:white;
 padding-left: 3%;
 `;
 
+const Vegan = styled.span`
+color:#52BA5D;
+`;
+
 
 
 const Nav = () => {
@@ -35,7 +39,7 @@ const Nav = () => {
     <NavContainer>
       <div>
         <h1>
-          <span className="veganheader">Vegan</span>Meets
+          <Vegan>Vegan</Vegan>Meets
         </h1>
       </div>
       <ButtonContainer>
