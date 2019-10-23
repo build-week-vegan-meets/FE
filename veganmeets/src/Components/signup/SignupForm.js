@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { NavLink } from "react-router-dom"
 import {withFormik, Form, Field} from 'formik';
+import axios from 'axios';
 import * as Yup from 'yup';
 import {colors} from '../../colors';
 import styled from 'styled-components';
@@ -81,11 +82,18 @@ const SignupFormStyle = styled.div`
 
 const SignupForm = ({errors, touched, status}) => {
     const [newUser, setNewUser] = useState([]);
+    
     useEffect(() => {
       if (status) {
         setNewUser([...newUser, status]);
       }
     }, [status]);
+
+    useEffect(() => {
+      axios
+      .post('https://vegan-meets.herokuapp.com/login', {username: "admin", password: "password"})
+      .then(res => console.log(res))
+    },[])
   
     return(
       <Container>
@@ -141,8 +149,9 @@ const SignupForm = ({errors, touched, status}) => {
       password: Yup.string().required('Please enter password')
       // confirm: Yup.string().required('Please confirm password')
     }),
-    handleSubmit({username, password}, {setStatus}){
+    handleSubmit({username, password}, {setStatus, doSignup}){
      setStatus({username, password})
+     doSignup({username, password})
     } 
   })(SignupForm);
 

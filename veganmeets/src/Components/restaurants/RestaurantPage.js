@@ -1,23 +1,15 @@
-import React, {useState} from "react";
-<<<<<<< HEAD
-import {connect} from 'react-redux';
-import {getAllRestaurants} from '../../action/index';
+import React, {useState, useEffect} from "react";
+import { connect } from 'react-redux';
 import styled from "styled-components";
 import Nav from "./Nav";
 import Search from "./Search";
-import RestaurantCard from './RestaurantCard';
-
-=======
-import styled from "styled-components";
-import Nav from "./Nav";
-import Search from "./Search";
-import axios from "axios";
+import { getAllRestaurants } from '../../action/index';
+import RestaurantCard from '../restaurants/RestaurantCard';
 import FrenchToast from "../../assets/frenchtoast1.png";
 import FrenchCasserole from "../../assets/frenchtoast.png";
 import Mushroom from "../../assets/mushroom.png"
 import Burger from "../../assets/burger.png"
 import Rest from "../../assets/restaurant.png"
->>>>>>> 6a86e8f4150a6a212e93879cf0cdf452b1621d2a
 
 const Page = styled.div`
   display: flex;
@@ -55,7 +47,7 @@ const LocalRestaurantPage = ({restaurants, getAllRestaurants}) => {
       return <p>No restaurants to show</p>
   }
 
-  handleChange= e => {
+  const handleChange= e => {
       let value = e.target.value;
       let filtered = restaurants.filter((restaurant,i)=>{
           let data = `${restaurant.name} ${restaurant.city} ${restaurant.food}`.toLowerCase();
@@ -65,9 +57,9 @@ const LocalRestaurantPage = ({restaurants, getAllRestaurants}) => {
   }
 
   const cards = (rests) ? rests.map((e,i)=>{
-    return <RestaurantCard key={i} {...e}></RestaurantCard>
+    return <RestaurantCard key={i} {...e} />
 }) : restaurants.map((e,i)=>{
-    return <RestaurantCard key={i} {...e}></RestaurantCard>
+    return <RestaurantCard key={i} {...e} />
 })
 
   return (
