@@ -1,13 +1,13 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import styled from "styled-components";
 import Nav from "./Nav";
 import Search from "./Search";
-import axios from "axios";
 import FrenchToast from "../../assets/frenchtoast1.png";
 import FrenchCasserole from "../../assets/frenchtoast.png";
 import Mushroom from "../../assets/mushroom.png"
 import Burger from "../../assets/burger.png"
 import Rest from "../../assets/restaurant.png"
+import axios from "axios";
 
 const Page = styled.div`
   display: flex;
@@ -35,7 +35,13 @@ const RestInfoContainer = styled.div`
 `;
 
 const ResraurantPage = props => {
+  const [ rest, setRest ] = useState();
 
+  useEffect(()=>{
+    // const id= 
+    axios
+    .get(`vegan-meets.herokuapp.com/resturants/`)
+  })
   return (
     <>
       <Nav />

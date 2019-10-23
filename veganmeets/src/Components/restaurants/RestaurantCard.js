@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import RestImage from "../../assets/restaurant.png"
-import { Route, NavLink } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 
 const RestCard = styled.div`
   width: 60%;
@@ -35,6 +35,7 @@ padding-left: 2%;
 `;
 
 const RestaurantCard = () => {
+  
   return (
     <NavLink to={'/restaurant/:id'}>
     <RestCard>
