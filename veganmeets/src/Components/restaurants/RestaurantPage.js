@@ -5,6 +5,15 @@ import styled from "styled-components";
 import Nav from "./Nav";
 import Search from "./Search";
 import RestaurantCard from './RestaurantCard';
+import styled from "styled-components";
+import Nav from "./Nav";
+import Search from "./Search";
+import axios from "axios";
+import FrenchToast from "../../assets/frenchtoast1.png";
+import FrenchCasserole from "../../assets/frenchtoast.png";
+import Mushroom from "../../assets/mushroom.png"
+import Burger from "../../assets/burger.png"
+import Rest from "../../assets/restaurant.png"
 
 
 const Page = styled.div`
