@@ -3,6 +3,8 @@ import { NavLink } from "react-router-dom";
 import Header from "../restaurants/Header";
 import { withFormik, Field, Form } from "formik";
 import * as Yup from "yup";
+import {connect} from 'react-redux';
+import {doLogin} from '../../action/index';
 import styled from "styled-components";
 import Sideimg from "../../assets/Vegfruit.png";
 
@@ -123,6 +125,10 @@ const FormikLogin = withFormik({
     name: Yup.string().required("Please enter your username"),
     password: Yup.string().required("Please enter your password")
   }),
-  handleSubmit({ username, password }) {}
+  handleSubmit({ username, password }, {setStatus}){
+    setStatus({username, password})
+  }
 })(Login);
-export default FormikLogin;
+export const LoginFormik = connect((state) => {
+  return{...state.login};
+}, {doLogin})(FormikLogin);

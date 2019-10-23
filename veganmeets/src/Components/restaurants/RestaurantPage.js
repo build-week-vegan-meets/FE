@@ -1,4 +1,13 @@
 import React, {useState} from "react";
+<<<<<<< HEAD
+import {connect} from 'react-redux';
+import {getAllRestaurants} from '../../action/index';
+import styled from "styled-components";
+import Nav from "./Nav";
+import Search from "./Search";
+import RestaurantCard from './RestaurantCard';
+
+=======
 import styled from "styled-components";
 import Nav from "./Nav";
 import Search from "./Search";
@@ -8,6 +17,7 @@ import FrenchCasserole from "../../assets/frenchtoast.png";
 import Mushroom from "../../assets/mushroom.png"
 import Burger from "../../assets/burger.png"
 import Rest from "../../assets/restaurant.png"
+>>>>>>> 6a86e8f4150a6a212e93879cf0cdf452b1621d2a
 
 const Page = styled.div`
   display: flex;
@@ -34,12 +44,36 @@ const RestInfoContainer = styled.div`
   
 `;
 
-const ResraurantPage = props => {
+const LocalRestaurantPage = ({restaurants, getAllRestaurants}) => {
+    const [rests, setRests] = useState();
+
+    useEffect(() => {
+      getAllRestaurants();
+  }, []);
+
+  if(!restaurants){
+      return <p>No restaurants to show</p>
+  }
+
+  handleChange= e => {
+      let value = e.target.value;
+      let filtered = restaurants.filter((restaurant,i)=>{
+          let data = `${restaurant.name} ${restaurant.city} ${restaurant.food}`.toLowerCase();
+          return data.includes(value);
+      })
+      setRests(filtered);
+  }
+
+  const cards = (rests) ? rests.map((e,i)=>{
+    return <RestaurantCard key={i} {...e}></RestaurantCard>
+}) : restaurants.map((e,i)=>{
+    return <RestaurantCard key={i} {...e}></RestaurantCard>
+})
 
   return (
     <>
       <Nav />
-      <Search />
+      <Search handleChange={handleChange}/>
       <Page>
         <ImageContainer>
           <Img src={`${Rest}`} />
@@ -62,6 +96,8 @@ const ResraurantPage = props => {
             <p>11:30 pm to 9 pm</p>
             <p>23 liberty street Chinatown, CA, 91416</p>
           </div>
+          
+         
         </RestInfoContainer>
         <p>Vegan Dishes </p>
         <ImageContainer>
@@ -74,4 +110,6 @@ const ResraurantPage = props => {
   );
 };
 
-export default ResraurantPage;
+export const RestaurantPage = connect((state) => {
+  return {...state.restaurants}
+}, {getAllRestaurants})(LocalRestaurantPage);

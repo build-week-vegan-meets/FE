@@ -59,11 +59,11 @@ function AddRestaurantForm(props){
 
                 <Field type="text" name="zipcode" placeholder="Zip Code" value={props.zipcode} />
 
-                <Field type="text" name="name" placeholder="Restaurant Name" value={props.name} />
+                <Field type="text" name="restaurantName" placeholder="Restaurant Name" value={props.name} />
 
-                <Field type="number" name="phone" placeholder="Phone number" value={props.phone} />
+                <Field type="text" name="phoneNumber" placeholder="Phone number" value={props.phone} />
 
-                <Field type="number" name="hours" placeholder="Hours of operation" value={props.hours} />
+                <Field type="text" name="hoursOfOperation" placeholder="Hours of operation" value={props.hours} />
 
                 <button type="submit">Submit</button>
 
@@ -79,9 +79,9 @@ const AddRestaurantFormik = withFormik({
             city: val.city || "",
             state: val.state || "",
             zipcode: val.zipcode || "",
-            name: val.name || "",
-            phone: val.phone || "",
-            hours: val.hours || ""
+            restaurantName: val.restaurantName || "",
+            phoneNumber: val.phoneNumber || "",
+            hoursOfOperation: val.hoursOfOperation || ""
         }
     },
     handleSubmit(values, {props}) {
@@ -90,9 +90,9 @@ const AddRestaurantFormik = withFormik({
             "city": values.city,
             "state": values.state,
             "zipcode": values.zipcode,
-            "name": values.name,
-            "phone": values.phone,
-            "hours": values.hours
+            "name": values.restaurantName,
+            "phone": values.phoneNumber,
+            "hours": values.hoursOfOperation
         }
         props.addRestaurant(formattedValues);
     }

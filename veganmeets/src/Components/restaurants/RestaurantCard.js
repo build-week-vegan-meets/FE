@@ -34,11 +34,28 @@ width: 30%;
 padding-left: 2%;
 `;
 
-const RestaurantCard = () => {
+const RestaurantCard = (props) => {
+
+  const handleEdit= () => {
+    props.setForm(props)
+  }
+
+  const handleDelete = () => {
+
+  }
+
   return (
     <NavLink to={'/restaurant/:id'}>
     <RestCard>
-      <MainInfo>
+      <h1>{props.restaurantName}</h1>
+      <p>{props.phoneNumber}</p>
+      <p>{props.hoursOfOperation}</p>
+
+      <button onClick={()=>handleEdit()}>Edit</button>
+      <button onClick={()=>handleDelete()}>Delete</button>
+
+
+      {/* <MainInfo>
         <div>
           <Img src={`${RestImage}`}/>
         </div>
@@ -56,7 +73,7 @@ const RestaurantCard = () => {
         <p>11:30 pm to 9 pm</p>
         <p>(999)999-9999</p>
         <p>23 liberty street<br /> Chinatown, CA, 91416</p>
-      </TimeLoc>
+      </TimeLoc> */}
     </RestCard>
     </NavLink>
   );
