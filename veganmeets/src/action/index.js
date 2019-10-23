@@ -74,7 +74,7 @@ export const doLogin = data => dispatch => {
       .catch(error => console.log('Add restaurant error', error));
   };
 
-  export const getAllRestaraunts = () => dispatch => {
+  export const getAllRestaurants = () => dispatch => {
     dispatch({ type: FETCH_ALL_RESTAURANTS });
   
     axiosWithAuth().get('/')

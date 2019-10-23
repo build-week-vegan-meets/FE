@@ -29,8 +29,8 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 border: 1px solid #CCCCCC;
-height: 30%;
-width: 30%;
+// height: 30%;
+// width: 30%;
 padding-left: 2%;
 `;
 
@@ -49,33 +49,27 @@ const RestaurantCard = (props) => {
   return (
     <NavLink to={'/restaurant/:id'}>
     <RestCard>
-      <h1>{props.restaurantName}</h1>
+      {/* <h1>{props.restaurantName}</h1>
       <p>{props.phoneNumber}</p>
       <p>{props.hoursOfOperation}</p>
-
+      
       <button onClick={()=>handleEdit()}>Edit</button>
-      <button onClick={()=>handleDelete()}>Delete</button>
+      <button onClick={()=>handleDelete()}>Delete</button> */}
 
 
-      {/* <MainInfo>
+      <TimeLoc>
+        <div style={{ display: 'flex'}}>
         <div>
           <Img src={`${RestImage}`}/>
         </div>
-        <div>
-          <h1>Oui French</h1>
-          <p>
-            * * * * * <span> 129 reviews</span>
-          </p>
-          <p>
-            $$$$$ <span>French, Rustic</span>
-          </p>
+        <>
+        <h1>{props.r.resturantname}</h1>
+        <p>Hours: {props.r.hoursofoperation}</p>
+        <p>Phone number: {props.r.phonenumber}</p>
+        <p>Address: {props.r.address}</p>
+        </>
         </div>
-      </MainInfo>
-      <TimeLoc>
-        <p>11:30 pm to 9 pm</p>
-        <p>(999)999-9999</p>
-        <p>23 liberty street<br /> Chinatown, CA, 91416</p>
-      </TimeLoc> */}
+      </TimeLoc>
     </RestCard>
     </NavLink>
   );
