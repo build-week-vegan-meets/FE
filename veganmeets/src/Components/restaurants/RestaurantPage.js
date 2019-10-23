@@ -62,14 +62,14 @@ const LocalRestaurantPage = ({restaurants, getAllRestaurants}) => {
     <>
       <Nav />
       <Search handleChange={handleChange}/>
-      {/* <Page>
+      <Page>
         <ImageContainer>
           <Img src="veganmeets/src/assets/restaurant.png" />
           <Img src="veganmeets/src/assets/frenchtoast1.png" />
           <Img src="veganmeets/src/assets/frenchtoast.png" />
-        </ImageContainer> */}
+        </ImageContainer>
         <RestInfoContainer>
-          {/* <div>
+          <div>
             <h1>Oui French</h1>
             <p>
               * * * * * <span> 129 reviews</span>
@@ -83,17 +83,17 @@ const LocalRestaurantPage = ({restaurants, getAllRestaurants}) => {
           <div>
             <p>11:30 pm to 9 pm</p>
             <p>23 liberty street Chinatown, CA, 91416</p>
-          </div> */}
-          {cards}
+          </div>
+          
          
         </RestInfoContainer>
-        {/* <p>Vegan Dishes </p>
+        <p>Vegan Dishes </p>
         <ImageContainer>
           <Img src="veganmeets/src/assets/restaurant.png" />
           <Img src="veganmeets/src/assets/frenchtoast1.png" />
           <Img src="veganmeets/src/assets/frenchtoast.png" />
           </ImageContainer>
-      </Page> */}
+      </Page>
     </>
   );
 };
