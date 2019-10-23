@@ -1,8 +1,13 @@
-import React, {useState} from "./node_modules/react";
-import styled from "./node_modules/styled-components";
+import React, {useState} from "react";
+import styled from "styled-components";
 import Nav from "./Nav";
 import Search from "./Search";
-import axios from "./node_modules/axios"
+import axios from "axios";
+import FrenchToast from "../../assets/frenchtoast1.png";
+import FrenchCasserole from "../../assets/frenchtoast.png";
+import Mushroom from "../../assets/mushroom.png"
+import Burger from "../../assets/burger.png"
+import Rest from "../../assets/restaurant.png"
 
 const Page = styled.div`
   display: flex;
@@ -37,9 +42,9 @@ const ResraurantPage = props => {
       <Search />
       <Page>
         <ImageContainer>
-          <Img src="veganmeets/src/assets/restaurant.png" />
-          <Img src="veganmeets/src/assets/frenchtoast1.png" />
-          <Img src="veganmeets/src/assets/frenchtoast.png" />
+          <Img src={`${Rest}`} />
+          <Img src={`${FrenchToast}`}/>
+          <Img src={`${FrenchCasserole}`} />
         </ImageContainer>
         <RestInfoContainer>
           <div>
@@ -60,9 +65,9 @@ const ResraurantPage = props => {
         </RestInfoContainer>
         <p>Vegan Dishes </p>
         <ImageContainer>
-          <Img src="veganmeets/src/assets/restaurant.png" />
-          <Img src="veganmeets/src/assets/frenchtoast1.png" />
-          <Img src="veganmeets/src/assets/frenchtoast.png" />
+          <Img src={`${Burger}`} />
+          <Img src={`${FrenchToast}`} />
+          <Img src={`${Mushroom}`}/>
           </ImageContainer>
       </Page>
     </>
