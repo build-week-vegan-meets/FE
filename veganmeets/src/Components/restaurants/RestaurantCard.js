@@ -47,7 +47,7 @@ const RestaurantCard = (props) => {
 
 
   return (
-    <NavLink to={'/restaurant/:id'}>
+    <NavLink to={`/restaurants/${props.r.id}`}>
     <RestCard>
       {/* <h1>{props.restaurantName}</h1>
       <p>{props.phoneNumber}</p>
