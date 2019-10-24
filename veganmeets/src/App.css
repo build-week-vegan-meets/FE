@@ -1,7 +1,11 @@
 body{
   font-family: 'Poppins', sans-serif;
 }
+<<<<<<< HEAD
 .App {
+=======
+/* .App {
+>>>>>>> 4bcfe64ee1217d1ef2bb45f405c572b6b90aa98d
   text-align: center;
 }
 
@@ -61,6 +65,7 @@ body{
   margin: 0 0 5% 0;
 }
 
+<<<<<<< HEAD
 .loginbtn {
   width: 45%;
   height: 5%;
@@ -68,6 +73,9 @@ body{
   color: white;
   border-radius: 5px;
 }
+=======
+
+>>>>>>> 4bcfe64ee1217d1ef2bb45f405c572b6b90aa98d
 
 @media only screen and (max-width: 500px) {
   .headerlogincontainer {
@@ -88,4 +96,8 @@ body{
     height: 6%;
     margin-top: 5%;
   }
+<<<<<<< HEAD
 }
+=======
+} */
+>>>>>>> 4bcfe64ee1217d1ef2bb45f405c572b6b90aa98d
