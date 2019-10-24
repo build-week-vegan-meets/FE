@@ -1,12 +1,14 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import styled from "styled-components";
+import {colors} from '../../colors';
 import RestImage from "../../assets/restaurant.png"
 import { NavLink } from "react-router-dom"
 
 const RestCard = styled.div`
   width: 60%;
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
+  justify-content: center;
   margin-left: 20%;
   margin-top: 2%;
   color: black;
@@ -14,64 +16,62 @@ const RestCard = styled.div`
 `;
 const Img = styled.img`
   width: 300px;
-  height: 200px;
+  height: 220px;
   
 `;
-
-const MainInfo = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width 60%;
-`;
 const TimeLoc = styled.div`
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-border: 1px solid #CCCCCC;
-// height: 30%;
-// width: 30%;
+border: 1px solid ${colors.fern};
+border-radius: 10px;
 padding-left: 2%;
+`;
+
+const SearchStyle = styled.div`
+  margin-top: 32px;
+  padding: 0.5rem;
+  font-size: 16px;
+  width: 100%;
+  display: block;
+  background: ${colors.white};
+  border: 1px solid #CCCCCC;
+  box-sizing: border-box;
+  border-radius: 10px;
 `;
 
 
 const RestaurantCard = (props) => {
+  
 
-  const handleEdit= () => {
+   const handleEdit= () => {
     props.setForm(props)
   }
 
   const handleDelete = () => {
 
   }
+  {/* <button onClick={()=>handleEdit()}>Edit</button>
+      <button onClick={()=>handleDelete()}>Delete</button> */} */}
 
 
   return (
-    <NavLink to={'/restaurant/:id'}>
+    <NavLink to={`/restaurants/${props.r.id}`}>
     <RestCard>
-      {/* <h1>{props.restaurantName}</h1>
-      <p>{props.phoneNumber}</p>
-      <p>{props.hoursOfOperation}</p>
-      
-      <button onClick={()=>handleEdit()}>Edit</button>
-      <button onClick={()=>handleDelete()}>Delete</button> */}
-
-
-      <TimeLoc>
+    <div>
+      <Img src={`${RestImage}`}/>
+    </div>
+    <TimeLoc>
         <div style={{ display: 'flex'}}>
-        <div>
-          <Img src={`${RestImage}`}/>
-        </div>
         <>
         <h1>{props.r.resturantname}</h1>
         <p>Hours: {props.r.hoursofoperation}</p>
         <p>Phone number: {props.r.phonenumber}</p>
         <p>Address: {props.r.address}</p>
         </>
+      
         </div>
       </TimeLoc>
     </RestCard>
     </NavLink>
+    
   );
 };
 
