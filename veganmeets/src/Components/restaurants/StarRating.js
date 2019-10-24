@@ -8,9 +8,10 @@ import {addRatings} from '../../action/index';
 const StarStyle = styled.div`
   content: url(${Starimg});
   width: 30px;
-  
 `
-
+const Stars = styled.div`
+display: flex;
+`;
 
 const Star = ({ selected = false, onClick = f => f }) => (
     <div className={selected ? "star selected" : "star"} onClick={onClick}>
@@ -41,7 +42,7 @@ const Star = ({ selected = false, onClick = f => f }) => (
       const { starsSelected } = this.state;
   
       return (
-        <div className="star-rating">
+        <Stars className="star-rating">
           {[...Array(totalStars)].map((n, i) => (
             <Star
               key={i}
@@ -52,7 +53,7 @@ const Star = ({ selected = false, onClick = f => f }) => (
           <p>
             {starsSelected} of {totalStars} stars
           </p>
-        </div>
+        </Stars>
       );
     }
   }

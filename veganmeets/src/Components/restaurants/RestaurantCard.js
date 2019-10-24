@@ -17,8 +17,9 @@ const RestCard = styled.div`
   text-decoration: none;
 `;
 const Img = styled.img`
-  width: 300px;
+  width: 330px;
   height: 220px;
+  border-radius:5px;
   
 `;
 const TimeLoc = styled.div`
@@ -30,6 +31,21 @@ padding-left: 2%;
 
 
 const RestaurantCard = (props) => {
+<<<<<<< HEAD
+=======
+  
+
+   const handleEdit= () => {
+    props.setForm(props)
+  }
+
+  const handleDelete = () => {
+
+  }
+  {/* <button onClick={()=>handleEdit()}>Edit</button>
+      <button onClick={()=>handleDelete()}>Delete</button> */}
+
+>>>>>>> 01b5549f9a6fe9f0aaeeb48ac229168563b35b2c
 
 
   return (

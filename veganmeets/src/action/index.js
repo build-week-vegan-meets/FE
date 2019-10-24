@@ -167,5 +167,6 @@ export const doLogin = data => dispatch => {
   
     axiosWithAuth().delete(`/ratings/${ratings.id}`)
       .then(response => dispatch({ type: DELETE_RATING_SUCCESS, payload: response.data }))
-      .catch(error => console.log('Delete ratings error', error));
+      .catch(error => console.log('Delete rating error', error));
   };
+
