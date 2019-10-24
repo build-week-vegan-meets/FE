@@ -53,6 +53,7 @@ const RestaurantCard = (props) => {
       <button onClick={()=>handleDelete()}>Delete</button> */}
 
 
+
   return (
     <NavLink to={`/restaurants/${props.r.id}`}>
     <RestCard>
