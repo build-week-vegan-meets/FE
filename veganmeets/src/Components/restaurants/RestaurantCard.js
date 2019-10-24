@@ -1,8 +1,10 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 import {colors} from '../../colors';
 import RestImage from "../../assets/restaurant.png"
 import { NavLink } from "react-router-dom"
+import {getAllRestaurants} from '../../action/index';
+import {connect} from 'react-redux';
 
 const RestCard = styled.div`
   width: 60%;
@@ -26,20 +28,11 @@ border-radius: 10px;
 padding-left: 2%;
 `;
 
-const SearchStyle = styled.div`
-  margin-top: 32px;
-  padding: 0.5rem;
-  font-size: 16px;
-  width: 100%;
-  display: block;
-  background: ${colors.white};
-  border: 1px solid #CCCCCC;
-  box-sizing: border-box;
-  border-radius: 10px;
-`;
 
 
 const RestaurantCard = (props) => {
+<<<<<<< HEAD
+=======
   
 
    const handleEdit= () => {
@@ -52,6 +45,7 @@ const RestaurantCard = (props) => {
   {/* <button onClick={()=>handleEdit()}>Edit</button>
       <button onClick={()=>handleDelete()}>Delete</button> */}
 
+>>>>>>> 01b5549f9a6fe9f0aaeeb48ac229168563b35b2c
 
 
   return (
@@ -66,7 +60,8 @@ const RestaurantCard = (props) => {
         <h1>{props.r.resturantname}</h1>
         <p>Hours: {props.r.hoursofoperation}</p>
         <p>Phone number: {props.r.phonenumber}</p>
-        <p>Address: {props.r.address}</p>
+        <p>Address: {props.r.address}</p> 
+        <p>Ratings: {props.r.ratings}</p>
         </>
       
         </div>

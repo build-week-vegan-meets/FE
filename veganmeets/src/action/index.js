@@ -18,6 +18,8 @@ export const DELETE_MENU = 'DELETE_MENU';
 export const DELETE_MENU_SUCCESS = 'DELETE_MENU_SUCCESS';
 export const ADD_RATINGS = 'ADD_RATINGS';
 export const ADD_RATINGS_SUCCESS = 'ADD_RATINGS_SUCCESS';
+export const FETCH_ALL_RATINGS = 'FETCH_ALL_RATINGS';
+export const FETCH_ALL_RATINGS_SUCCESS = 'FETCH_ALL_RATINGS_SUCCESS';
 export const UPDATE_RATING = 'UPDATE_RATING';
 export const UPDATE_RATING_SUCCESS = 'UPDATE_RATING_SUCCESS';
 export const DELETE_RATING = 'DELETE_RATING';
@@ -27,7 +29,7 @@ export const DELETE_RATING_SUCCESS = 'DELETE_RATING_SUCCESS';
 export const doSignup = data => dispatch => {
     dispatch({ type: SIGNUP, payload: data });
   
-    axiosWithAuth().post('https://vegan-meets.herokuapp.com/users/user', ({ ...data, userroles: [], useremails: [] }))
+    axiosWithAuth().post('https://vegan-meets.herokuapp.com/register', ({ ...data, userroles: [], useremails: [] }))
       
         .then(user => {
         dispatch({ type: SIGNUP_RESULT, payload: { success: true, user } });
@@ -51,7 +53,7 @@ export const doSignup = data => dispatch => {
 export const doLogin = data => dispatch => {
     dispatch({ type: LOGIN, payload: data });
   
-    axiosWithAuth().post('/users/getusername', { ...data, grant_type: 'password' })
+    axiosWithAuth().post('/login', { ...data, grant_type: 'password' })
       .then(response => {
         localStorage.setItem("token", response.data.access_token);
         localStorage.setItem("tokenType", response.data.token_type);
@@ -140,6 +142,14 @@ export const doLogin = data => dispatch => {
     axiosWithAuth().post('/ratings', {...ratings }) 
       .then(response => dispatch({ type: ADD_RATINGS_SUCCESS, payload: response.data }))
       .catch(error => console.log('Add ratings error', error));
+  };
+
+  export const getAllRatings = () => dispatch => {
+    dispatch({ type: FETCH_ALL_RATINGS });
+  
+    axiosWithAuth().get(`/ratings`)
+      .then(response => dispatch({ type: FETCH_ALL_RATINGS_SUCCESS, payload: response.data }))
+      .catch(error => console.log('Fetch all ratings error', error));
   };
 
   export const updateRating = ratings => dispatch => {

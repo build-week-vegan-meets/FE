@@ -89,11 +89,6 @@ const SignupForm = ({errors, touched, status}) => {
       }
     }, [status]);
 
-    useEffect(() => {
-      axios
-      .post('https://vegan-meets.herokuapp.com/login', {username: "admin", password: "password"})
-      .then(res => console.log(res))
-    },[])
   
     return(
       <Container>
@@ -116,6 +111,20 @@ const SignupForm = ({errors, touched, status}) => {
         placeholder="Password"
         />
        {touched.password && errors.password && (<p className="error">{errors.password}</p>)} 
+
+       <Field 
+        type="text"
+        name="useremail"
+        placeholder="User Email"
+        />
+       {touched.useremail && errors.useremail && (<p className="error">{errors.useremail}</p>)} 
+
+       <Field 
+        type="text"
+        name="primaryemail"
+        placeholder="Primary Email"
+        />
+       {touched.primaryemail && errors.primaryemail && (<p className="error">{errors.primaryemail}</p>)} 
   
       <NavLink to={`/login`}>
       <button type="submit">Sign Up</button>
@@ -131,21 +140,24 @@ const SignupForm = ({errors, touched, status}) => {
   };
   
   const FormikSignupForm = withFormik({
-    mapPropsToValues({username, password}) {
+    mapPropsToValues({username, password, useremail, primaryemail}) {
       return {
         username: username || '',
-        password: password || ''
-        // confirm: confirm || ''
+        password: password || '',
+        useremail: useremail || '',
+        primaryemail: primaryemail || ''
       };
     },
     validationSchema: Yup.object().shape({
       username: Yup.string().required('Please enter email'),
-      password: Yup.string().required('Please enter password')
-      // confirm: Yup.string().required('Please confirm password')
+      password: Yup.string().required('Please enter password'),
+      usermail: Yup.string().required('Please input user email'),
+      primaryemail: Yup.string().required('Please input primary email')
+
     }),
-    handleSubmit({username, password}, {setStatus, doSignup}){
-     setStatus({username, password})
-     doSignup({username, password})
+    handleSubmit({username, password, useremail, primaryemail}, {setStatus, doSignup}){
+     setStatus({username, password, useremail, primaryemail})
+     doSignup({username, password, useremail, primaryemail})
     } 
   })(SignupForm);
 

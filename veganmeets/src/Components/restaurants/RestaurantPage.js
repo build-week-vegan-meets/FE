@@ -57,7 +57,36 @@ const RestaurantPage = (props) => {
   if (!restaurant) {
     return <p>Loading Restaurant Information...</p>;
   }
+  // const handleEdit= () => {
+  //   props.setForm(props)
+  // }
 
+<<<<<<< HEAD
+  // const handleDelete = () => {
+
+  // }
+  {/* <button onClick={()=>handleEdit()}>Edit</button>
+      <button onClick={()=>handleDelete()}>Delete</button> */} 
+
+
+  const {resturantname, address, phonenumber, hoursofoperation, ratings} = restaurant;
+  return(
+    <div>
+      <RestaurantPageNav />
+    <RestCard>
+    <div>
+          <Img src={`${RestImage}`}/>
+        </div>
+      <TimeLoc>
+        <div style={{ display: 'flex'}}>
+        <>
+        <h1>{resturantname}</h1>
+        <p>Hours: {hoursofoperation}</p>
+        <p>Phone number: {phonenumber}</p>
+        <p>Address: {address}</p>
+        <p>Ratings: {ratings}</p>
+        </>
+=======
   const { resturantname, address, phonenumber, hoursofoperation } = restaurant;
   return (
     <div>
@@ -65,6 +94,7 @@ const RestaurantPage = (props) => {
       <RestCard>
         <div>
           <Img src={`${RestImage}`} />
+>>>>>>> 01b5549f9a6fe9f0aaeeb48ac229168563b35b2c
         </div>
         <TimeLoc>
           <div style={{ display: "flex" }}>
