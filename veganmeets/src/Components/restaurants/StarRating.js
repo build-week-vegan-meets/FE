@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Starimg from '../../assets/star.png'
 import {connect} from 'react-redux';
-import {addRatings} from 
+import {addRatings} from '../../action/index';
 
 const StarStyle = styled.div`
   content: url(${Starimg});
@@ -65,4 +65,4 @@ const Star = ({ selected = false, onClick = f => f }) => (
     totalStars: 5
   };
 
-  export default StarRating;
+  export default connect(null, {addRatings})(StarRating);

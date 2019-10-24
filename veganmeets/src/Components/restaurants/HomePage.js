@@ -7,18 +7,7 @@ import RestaurantCard from "./RestaurantCard"
 
 const HomePage = () => {
     const [rest, setRest] = useState([]);
-    useEffect(() => {
-        axios
-    .get(`https://vegan-meets.herokuapp.com/resturants`)
-    .then(response =>{
-        console.log(response)
-        setRest(response.data)
-    })
-    .catch(error =>{
-        console.log("ERROR", error)
-    })
-    },[])
-    
+
 
     return (
         <>

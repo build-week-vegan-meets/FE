@@ -49,24 +49,18 @@ const RestaurantPage = (props, {restaurants}) => {
   if(!restaurant) {
     return <p>Loading Restaurant Information...</p>
   }
+  // const handleEdit= () => {
+  //   props.setForm(props)
+  // }
+
+  // const handleDelete = () => {
+
+  // }
+  {/* <button onClick={()=>handleEdit()}>Edit</button>
+      <button onClick={()=>handleDelete()}>Delete</button> */} 
 
 
-//     const handleChange= e => {
-//     let value = e.target.value;
-//     let filtered = restaurants.filter((restaurant,i)=>{
-//         let data = `${restaurant.name} ${restaurant.city} ${restaurant.food}`.toLowerCase();
-//         return data.includes(value);
-//     })
-//     setRests(filtered);
-// }
-
-//   const cards = (rests) ? rests.map((e,i)=>{
-//   return <RestaurantCard key={i} {...e} />
-// }) : restaurants.map((e,i)=>{
-//   return <RestaurantCard key={i} {...e} />
-// })
-
-  const {resturantname, address, phonenumber, hoursofoperation} = restaurant;
+  const {resturantname, address, phonenumber, hoursofoperation, ratings} = restaurant;
   return(
     <div>
       <RestaurantPageNav />
@@ -81,6 +75,7 @@ const RestaurantPage = (props, {restaurants}) => {
         <p>Hours: {hoursofoperation}</p>
         <p>Phone number: {phonenumber}</p>
         <p>Address: {address}</p>
+        <p>Ratings: {ratings}</p>
         </>
         </div>
       </TimeLoc>
