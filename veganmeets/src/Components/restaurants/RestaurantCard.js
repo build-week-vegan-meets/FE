@@ -15,8 +15,9 @@ const RestCard = styled.div`
   text-decoration: none;
 `;
 const Img = styled.img`
-  width: 300px;
+  width: 330px;
   height: 220px;
+  border-radius:5px;
   
 `;
 const TimeLoc = styled.div`
@@ -49,7 +50,8 @@ const RestaurantCard = (props) => {
 
   }
   {/* <button onClick={()=>handleEdit()}>Edit</button>
-      <button onClick={()=>handleDelete()}>Delete</button> */} 
+      <button onClick={()=>handleDelete()}>Delete</button> */}
+
 
 
   return (

@@ -50,6 +50,7 @@ const Nav = () => {
       <ButtonContainer>
           <Button to={`/resturants`}>Add New Restaurant</Button>
           <Button to={`/`}>Homepage</Button>
+          <Button to ={'/favorites'}>Favorites</Button>
       </ButtonContainer>
     </NavContainer>
   );

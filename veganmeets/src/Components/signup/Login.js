@@ -3,8 +3,8 @@ import { NavLink } from "react-router-dom";
 import Header from "../restaurants/Header";
 import { withFormik, Field, Form } from "formik";
 import * as Yup from "yup";
-import {connect} from 'react-redux';
-import {doLogin} from '../../action/index';
+import { connect } from "react-redux";
+import { doLogin } from "../../action/index";
 import styled from "styled-components";
 import Sideimg from "../../assets/Vegfruit.png";
 
@@ -71,6 +71,11 @@ const LoginBtn = styled.button`
   }
 `;
 
+const Signup = styled.span`
+ text-decoration: none;
+ color:black;
+`;
+
 const Login = ({ errors, touched }) => {
   return (
     <Container>
@@ -105,7 +110,10 @@ const Login = ({ errors, touched }) => {
           </LoginBtn>
 
           <p>
-            Don't have an account? <span>Create one.</span>
+            Don't have an account?{" "}
+            
+              <NavLink to={`/signup`}><Signup>Create one.</Signup></NavLink>
+            
           </p>
         </LoginContainer>
       </HeaderLoginContainer>
@@ -125,11 +133,14 @@ const FormikLogin = withFormik({
     name: Yup.string().required("Please enter your username"),
     password: Yup.string().required("Please enter your password")
   }),
-  handleSubmit({ username, password }, {setStatus, doLogin}){
-    setStatus({username, password})
-    doLogin({username, password})
+  handleSubmit({ username, password }, { setStatus, doLogin }) {
+    setStatus({ username, password });
+    doLogin({ username, password });
   }
 })(Login);
-export const LoginFormik = connect((state) => {
-  return{...state.login};
-}, {doLogin})(FormikLogin);
+export const LoginFormik = connect(
+  state => {
+    return { ...state.login };
+  },
+  { doLogin }
+)(FormikLogin);
