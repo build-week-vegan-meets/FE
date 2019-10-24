@@ -125,8 +125,9 @@ const FormikLogin = withFormik({
     name: Yup.string().required("Please enter your username"),
     password: Yup.string().required("Please enter your password")
   }),
-  handleSubmit({ username, password }, {setStatus}){
+  handleSubmit({ username, password }, {setStatus, doLogin}){
     setStatus({username, password})
+    doLogin({username, password})
   }
 })(Login);
 export const LoginFormik = connect((state) => {

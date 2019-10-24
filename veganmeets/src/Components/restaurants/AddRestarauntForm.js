@@ -1,9 +1,26 @@
 import React from 'react';
+import {NavLink} from 'react-router-dom';
 import {withFormik, Field, Form} from 'formik';
 import {colors} from '../../colors';
 import styled from 'styled-components';
 import {connect} from 'react-redux';
 import {addRestaurant} from '../../action';
+import BurgerImg from '../../assets/mushroom.png';
+
+const Container = styled.div`
+  display: flex;
+  height: 100vh;
+`;
+
+const SideDiv = styled.div`
+  width: 55vw;
+  background-image: url(${BurgerImg});
+  background-size: cover;
+  height: auto;
+  @media (max-width: 500px) {
+  display: none;
+}
+`;
 
 const AddRestaurantFormStyle = styled.div`
 form {
@@ -48,6 +65,7 @@ form {
 
 function AddRestaurantForm(props){
     return(
+      <Container>
         <AddRestaurantFormStyle>
             <h1></h1>
             <Form>
@@ -59,10 +77,13 @@ function AddRestaurantForm(props){
 
                 <Field type="text" name="hoursofoperation" placeholder="Hours of operation" value={props.hoursofoperation} />
 
-                <button type="submit">Submit</button>
-
+                <NavLink to={`/`}>
+                    <button type="submit">Add Restaurant</button>
+                </NavLink>
             </Form>
           </AddRestaurantFormStyle>
+          <SideDiv></SideDiv>
+          </Container>
     )
 }
 
