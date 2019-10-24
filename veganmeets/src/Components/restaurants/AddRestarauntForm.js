@@ -71,15 +71,15 @@ function AddRestaurantForm(props){
             <Form>
                 <Field type="text" name="address" placeholder="Address" value={props.address} />
 
-                 <Field type="text" name="restaurantname" placeholder="Restaurant Name" value={props.restaurantname} />
+                 <Field type="text" name="resturantname" placeholder="Restaurant Name" value={props.restaurantname} />
 
                 <Field type="text" name="phonenumber" placeholder="Phone number" value={props.phonenumber} />
 
                 <Field type="text" name="hoursofoperation" placeholder="Hours of operation" value={props.hoursofoperation} />
 
-                <NavLink to={`/`}>
+                {/* <NavLink to={`/`}> */}
                     <button type="submit">Add Restaurant</button>
-                </NavLink>
+                {/* </NavLink> */}
             </Form>
           </AddRestaurantFormStyle>
           <SideDiv></SideDiv>
@@ -91,15 +91,15 @@ const AddRestaurantFormik = withFormik({
     mapPropsToValues(val){
         return{
             address: val.address || "",
-            restaurantName: val.restaurantname || "",
-            phoneNumber: val.phonenumber || "",
-            hoursOfOperation: val.hoursofoperation || ""
+            resturantname: val.resturantname || "",
+            phonenumber: val.phonenumber || "",
+            hoursofoperation: val.hoursofoperation || ""
         }
     },
     handleSubmit(values, {props}) {
         let formattedValues = {
             "address": values.address,
-            "name": values.restaurantname,
+            "name": values.resturantname,
             "phone": values.phonenumber,
             "hours": values.hoursofoperation
         }
