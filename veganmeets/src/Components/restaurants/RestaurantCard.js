@@ -49,7 +49,7 @@ const RestaurantCard = (props) => {
 
   }
   {/* <button onClick={()=>handleEdit()}>Edit</button>
-      <button onClick={()=>handleDelete()}>Delete</button> */} */}
+      <button onClick={()=>handleDelete()}>Delete</button> */} 
 
 
   return (
