@@ -48,15 +48,17 @@ const RestaurantCard = (props) => {
   const handleDelete = () => {
 
   }
+  {/* <button onClick={()=>handleEdit()}>Edit</button>
+      <button onClick={()=>handleDelete()}>Delete</button> */} */}
 
 
   return (
     <NavLink to={`/restaurants/${props.r.id}`}>
     <RestCard>
     <div>
-          <Img src={`${RestImage}`}/>
-        </div>
-      <TimeLoc>
+      <Img src={`${RestImage}`}/>
+    </div>
+    <TimeLoc>
         <div style={{ display: 'flex'}}>
         <>
         <h1>{props.r.resturantname}</h1>
@@ -64,10 +66,12 @@ const RestaurantCard = (props) => {
         <p>Phone number: {props.r.phonenumber}</p>
         <p>Address: {props.r.address}</p>
         </>
+      
         </div>
       </TimeLoc>
     </RestCard>
     </NavLink>
+    
   );
 };
 
