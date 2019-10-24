@@ -5,13 +5,6 @@
   "dependencies": {
     "axios": "^0.19.0",
     "formik": "^1.5.8",
-<<<<<<< HEAD
-    "global": "^4.4.0",
-    "now": "^16.4.0",
-    "react": "^16.10.2",
-    "react-dom": "^16.10.2",
-    "react-scripts": "3.2.0",
-=======
     "now": "^16.4.0",
     "prop-types": "^15.7.2",
     "react": "^16.10.2",
@@ -21,7 +14,6 @@
     "react-scripts": "3.2.0",
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0",
->>>>>>> 4bcfe64ee1217d1ef2bb45f405c572b6b90aa98d
     "styled-components": "^4.4.0",
     "yup": "^0.27.0"
   },
