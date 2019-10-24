@@ -25,7 +25,7 @@ export const DELETE_RATING_SUCCESS = 'DELETE_RATING_SUCCESS';
 export const doSignup = data => dispatch => {
     dispatch({ type: SIGNUP, payload: data });
   
-    axiosWithAuth().post('https://vegan-meets.herokuapp.com/users/user', ({ ...data, userroles: [], useremails: [] }))
+    axiosWithAuth().post('https://vegan-meets.herokuapp.com/createnewuser', ({ ...data, userroles: [], useremails: [] }))
       
         .then(user => {
         dispatch({ type: SIGNUP_RESULT, payload: { success: true, user } });
@@ -84,7 +84,7 @@ export const doLogin = data => dispatch => {
 
 
 
-  export const getAllRestaurants = (id) => dispatch => {
+  export const getAllRestaurants = () => dispatch => {
     dispatch({ type: FETCH_ALL_RESTAURANTS });
   
     axiosWithAuth().get(`/resturants`)
@@ -94,20 +94,20 @@ export const doLogin = data => dispatch => {
 
 
 
-  export const updateRestaurant = restaurant => dispatch => {
-    dispatch({ type: UPDATE_RESTAURANT, payload: restaurant });
+  export const updateRestaurant = r => dispatch => {
+    dispatch({ type: UPDATE_RESTAURANT, payload: r });
   
-    axiosWithAuth().put(`/resturants/${restaurant.id}`, restaurant)
+    axiosWithAuth().put(`/resturants/${r.id}`, r)
       .then(response => dispatch({ type: UPDATE_RESTAURANT_SUCCESS, payload: response.data }))
       .catch(error => console.log('Update restaurant error', error));
   };
 
 
   
-  export const deleteRestaurant = id => dispatch => {
-    dispatch({ type: DELETE_RESTAURANT, payload: id });
+  export const deleteRestaurant = r => dispatch => {
+    dispatch({ type: DELETE_RESTAURANT, payload: r });
   
-    axiosWithAuth().delete(`/resturants/${id}`)
+    axiosWithAuth().delete(`/resturants/${r.id}`)
       .then(response => dispatch({ type: DELETE_RESTAURANT_SUCCESS, payload: response.data }))
       .catch(error => console.log('Delete restaurant error', error));
   };
