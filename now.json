@@ -1,0 +1,8 @@
+{
+    "version": 2,
+    "name": "FE/veganmeets",
+    "builds": [{ "src": "FE/veganmeets/package.json", "use": "@now/static-build", "config": {"distDir": "build"} }],
+    "routes": [
+        { "src": "/(.*)", "dest": "FE/veganmeets/$1" }
+    ]
+}
