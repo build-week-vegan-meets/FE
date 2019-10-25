@@ -1,10 +1,16 @@
 import React from "react";
+import styled from "styled-components"
+
+const Vegan = styled.span`
+color:#52BA5D;
+margin-left:3%;
+`;
 
 const Header = () => {
   return (
     <div className="headerContainer">
       <h1>
-        <span className="veganheader">Vegan</span>Meets
+        <Vegan>Vegan</Vegan>Meets
       </h1>
     </div>
   );

@@ -2,6 +2,13 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Nav from "./Nav";
 import RestaurantCard from "./RestaurantCard";
+import styled from "styled-components"
+
+const Search = styled.input`
+width: 50%;
+margin: 4% 0 0 25%;
+border-radius: 5px;
+`;
 
 const HomePage = () => {
   const [rest, setRest] = useState([]);
@@ -10,8 +17,9 @@ const HomePage = () => {
     axios
       .get(`https://vegan-meets.herokuapp.com/resturants`)
       .then(response => {
+        console.log(response)
         const restaurants = response.data.filter(restaurant =>
-          restaurant.resturantname.toLowerCase().includes(search.toLowerCase()) ||
+          // restaurant.resturantname.toLowerCase().includes(search.toLowerCase()) ||
           restaurant.address.toLowerCase().includes(search.toLowerCase()) ||
           restaurant.hoursofoperation.includes(search)
         );
@@ -31,7 +39,7 @@ const HomePage = () => {
   return (
     <>
       <Nav />
-      <input
+      <Search
         type="text"
         onChange={handleInputChange}
         value={search}
