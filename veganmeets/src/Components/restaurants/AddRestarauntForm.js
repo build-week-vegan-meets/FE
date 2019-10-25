@@ -107,4 +107,8 @@ const AddRestaurantFormik = withFormik({
     }
 })(AddRestaurantForm)
 
-export const RestaurantFormik = connect(null, {addRestaurant})(AddRestaurantFormik);
+// export const RestaurantFormik = connect(null, {addRestaurant})(AddRestaurantFormik);
+export const RestaurantFormik = connect(
+  state => {
+    return {...state.restaurants};
+  },{addRestaurant})(AddRestaurantFormik);

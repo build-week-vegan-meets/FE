@@ -100,7 +100,7 @@ const Login = ({ errors, touched }) => {
               type="password"
               placeholder="Password"
             />
-            {touched.password && errors.passowrd && (
+            {touched.password && errors.password && (
               <p className="errors">{errors.password}</p>
             )}
           </Form>
@@ -130,7 +130,7 @@ const FormikLogin = withFormik({
     };
   },
   validationSchema: Yup.object().shape({
-    name: Yup.string().required("Please enter your username"),
+    username: Yup.string().required("Please enter your username"),
     password: Yup.string().required("Please enter your password")
   }),
   handleSubmit({ username, password }, { setStatus, doLogin }) {
