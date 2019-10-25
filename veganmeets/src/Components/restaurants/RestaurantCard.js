@@ -56,4 +56,5 @@ const RestaurantCard = props => {
   );
 };
 
+
 export default RestaurantCard;

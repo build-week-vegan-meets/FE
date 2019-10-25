@@ -57,6 +57,9 @@ const RestaurantPage = (props) => {
   if (!restaurant) {
     return <p>Loading Restaurant Information...</p>;
   }
+  // const handleEdit= () => {
+  //   props.setForm(props)
+  // }
 
   const { resturantname, address, phonenumber, hoursofoperation } = restaurant;
   return (

@@ -16,6 +16,10 @@ export const UPDATE_MENU = 'UPDATE_MENU';
 export const UPDATE_MENU_SUCCESS = 'UPDATE_MENU_SUCCESS';
 export const DELETE_MENU = 'DELETE_MENU';
 export const DELETE_MENU_SUCCESS = 'DELETE_MENU_SUCCESS';
+export const ADD_RATINGS = 'ADD_RATINGS';
+export const ADD_RATINGS_SUCCESS = 'ADD_RATINGS_SUCCESS';
+export const FETCH_ALL_RATINGS = 'FETCH_ALL_RATINGS';
+export const FETCH_ALL_RATINGS_SUCCESS = 'FETCH_ALL_RATINGS_SUCCESS';
 export const UPDATE_RATING = 'UPDATE_RATING';
 export const UPDATE_RATING_SUCCESS = 'UPDATE_RATING_SUCCESS';
 export const DELETE_RATING = 'DELETE_RATING';
@@ -25,7 +29,7 @@ export const DELETE_RATING_SUCCESS = 'DELETE_RATING_SUCCESS';
 export const doSignup = data => dispatch => {
     dispatch({ type: SIGNUP, payload: data });
   
-    axiosWithAuth().post('https://vegan-meets.herokuapp.com/createnewuser', ({ ...data, userroles: [], useremails: [] }))
+    axiosWithAuth().post('https://vegan-meets.herokuapp.com/register', ({ ...data, userroles: [], useremails: [] }))
       
         .then(user => {
         dispatch({ type: SIGNUP_RESULT, payload: { success: true, user } });
@@ -97,7 +101,7 @@ export const doLogin = data => dispatch => {
   export const updateRestaurant = r => dispatch => {
     dispatch({ type: UPDATE_RESTAURANT, payload: r });
   
-    axiosWithAuth().put(`/resturants/${r.id}`, r)
+    axiosWithAuth().put('/resturants', r)///resturants/${r.id}
       .then(response => dispatch({ type: UPDATE_RESTAURANT_SUCCESS, payload: response.data }))
       .catch(error => console.log('Update restaurant error', error));
   };
@@ -107,7 +111,7 @@ export const doLogin = data => dispatch => {
   export const deleteRestaurant = r => dispatch => {
     dispatch({ type: DELETE_RESTAURANT, payload: r });
   
-    axiosWithAuth().delete(`/resturants/${r.id}`)
+    axiosWithAuth().delete(`/resturants/${r.id}`)///resturants/${r.id}
       .then(response => dispatch({ type: DELETE_RESTAURANT_SUCCESS, payload: response.data }))
       .catch(error => console.log('Delete restaurant error', error));
   };
@@ -117,7 +121,7 @@ export const doLogin = data => dispatch => {
   export const updateMenu = menu => dispatch => {
     dispatch({ type: UPDATE_MENU, payload: menu });
   
-    axiosWithAuth().put(`/`, menu)
+    axiosWithAuth().put('/menu', menu)
       .then(response => dispatch({ type: UPDATE_MENU_SUCCESS, payload: response.data }))
       .catch(error => console.log('Update menu error', error));
   };
@@ -127,27 +131,42 @@ export const doLogin = data => dispatch => {
   export const deleteMenu = menu => dispatch => {
     dispatch({ type: DELETE_MENU, payload: menu });
   
-    axiosWithAuth().delete(`/`)
+    axiosWithAuth().delete(`/menu/${menu.id}`)
       .then(response => dispatch({ type: DELETE_MENU_SUCCESS, payload: response.data }))
       .catch(error => console.log('Delete menu error', error));
   };
 
-
-
-  export const updateRating = rating => dispatch => {
-    dispatch({ type: UPDATE_RATING, payload: rating });
+  export const addRatings = ratings => dispatch => {
+    dispatch({ type: ADD_RATINGS, payload: ratings });
   
-    axiosWithAuth().put(`/`, rating)
+    axiosWithAuth().post('/ratings', {...ratings }) 
+      .then(response => dispatch({ type: ADD_RATINGS_SUCCESS, payload: response.data }))
+      .catch(error => console.log('Add ratings error', error));
+  };
+
+  export const getAllRatings = () => dispatch => {
+    dispatch({ type: FETCH_ALL_RATINGS });
+  
+    axiosWithAuth().get(`/ratings`)
+      .then(response => dispatch({ type: FETCH_ALL_RATINGS_SUCCESS, payload: response.data }))
+      .catch(error => console.log('Fetch all ratings error', error));
+  };
+
+  export const updateRating = ratings => dispatch => {
+    dispatch({ type: UPDATE_RATING, payload: ratings });
+  
+    axiosWithAuth().put('/ratings', ratings)
       .then(response => dispatch({ type: UPDATE_RATING_SUCCESS, payload: response.data }))
-      .catch(error => console.log('Update rating error', error));
+      .catch(error => console.log('Update ratings error', error));
   };
 
 
 
-  export const deleteRating = rating => dispatch => {
-    dispatch({ type: DELETE_RATING, payload: rating });
+  export const deleteRating = ratings => dispatch => {
+    dispatch({ type: DELETE_RATING, payload: ratings });
   
-    axiosWithAuth().delete(`/`)
+    axiosWithAuth().delete(`/ratings/${ratings.id}`)
       .then(response => dispatch({ type: DELETE_RATING_SUCCESS, payload: response.data }))
       .catch(error => console.log('Delete rating error', error));
   };
+
